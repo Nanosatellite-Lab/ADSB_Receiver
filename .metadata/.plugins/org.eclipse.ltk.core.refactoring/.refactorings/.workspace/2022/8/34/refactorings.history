@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;ADSB_Program/Core/Inc/fatfs_sd&apos;" deleteContents="false" description="Delete resource &apos;ADSB_Program/Core/Inc/fatfs_sd&apos;" element1="/ADSB_Program/Core/Inc/fatfs_sd" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1660443636560"/>
+</session>

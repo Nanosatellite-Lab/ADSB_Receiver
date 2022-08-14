@@ -134,16 +134,6 @@ int main(void)
 	  send_uart("Result_File.txt created\n\r");
   }
 
-//  f_getfree("", &fre_clust, &pfs);
-//
-//  total = (uint32_t)((pfs->n_fatent - 2) * pfs ->csize*0.5);
-//  sprintf(bufferSD, "SD CARD Total Size: \t%lu\n", total);
-//  send_uart(bufferSD);
-//  bufclear();
-//  free_space = (uint32_t)(fre_clust * pfs->csize*0.5);
-//  sprintf(bufferSD, "SD CARD Free Space: \t%lu\n", free_space);
-//  send_uart(bufferSD);
-
   f_open(&fil, "Result_File.txt", FA_OPEN_ALWAYS | FA_WRITE | FA_READ);
   int loop = 0;
   /* USER CODE END 2 */
@@ -167,7 +157,7 @@ int main(void)
 	  loop++;
   }
   f_close(&fil);
-  send_uart("\n\r-----------------------------n\rClosing file......Done \n\r");
+  send_uart("\n\r-----------------------------\n\rClosing file......Done \n\r");
   /* USER CODE END 3 */
 }
 

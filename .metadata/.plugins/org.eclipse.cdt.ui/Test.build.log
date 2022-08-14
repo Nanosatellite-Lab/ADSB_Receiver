@@ -1,10 +1,45 @@
-19:47:14 **** Incremental Build of configuration Debug for project Test ****
+10:41:11 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -IC:/Users/Alif/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -IC:/Users/Alif/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/STM32F1xx_HAL_Driver/Inc -IC:/Users/Alif/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/CMSIS/Device/ST/STM32F1xx/Include -IC:/Users/Alif/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -IC:/Users/Alif/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:149:47: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive' differ in signedness [-Wpointer-sign]
+  149 |     bufferADSB[i] = HAL_UART_Receive(&huart3, bufferADSB, sizeof(bufferADSB), 10);
+      |                                               ^~~~~~~~~~
+      |                                               |
+      |                                               char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from C:/Users/Alif/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+C:/Users/Alif/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:726:72: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  726 | HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                               ~~~~~~~~~^~~~~
+../Core/Src/main.c:150:25: warning: multi-character character constant [-Wmultichar]
+  150 |     if(bufferADSB[i] == '\r\n')
+      |                         ^~~~~~
+../Core/Src/main.c:153:31: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  153 |    HAL_UART_Transmit(&huart2, bufferADSB, sizeof(bufferADSB), 10);
+      |                               ^~~~~~~~~~
+      |                               |
+      |                               char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from C:/Users/Alif/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+C:/Users/Alif/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:725:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  725 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Test.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Alif\Documents\STM32CubeIDE\ADSB_Receiver\Test\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Test.elf
+ 
 arm-none-eabi-size   Test.elf 
+arm-none-eabi-objdump -h -S  Test.elf  > "Test.list"
    text	   data	    bss	    dec	    hex	filename
   28920	     44	  11676	  40640	   9ec0	Test.elf
 Finished building: default.size.stdout
  
+Finished building: Test.list
+ 
 
-19:47:14 Build Finished. 0 errors, 0 warnings. (took 260ms)
+10:41:12 Build Finished. 0 errors, 3 warnings. (took 736ms)
 

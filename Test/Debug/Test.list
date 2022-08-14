@@ -27,9 +27,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00020024  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000b4a1  00000000  00000000  0002004d  2**0
+ 12 .debug_info   0000b4a0  00000000  00000000  0002004d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00002170  00000000  00000000  0002b4ee  2**0
+ 13 .debug_abbrev 00002170  00000000  00000000  0002b4ed  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  14 .debug_aranges 00000bc0  00000000  00000000  0002d660  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -37,11 +37,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  0001834f  00000000  00000000  0002ecf8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000fe4a  00000000  00000000  00047047  2**0
+ 17 .debug_line   0000fe48  00000000  00000000  00047047  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00085583  00000000  00000000  00056e91  2**0
+ 18 .debug_str    00085583  00000000  00000000  00056e8f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000dc414  2**0
+ 19 .comment      00000050  00000000  00000000  000dc412  2**0
                   CONTENTS, READONLY
  20 .debug_frame  00002f20  00000000  00000000  000dc464  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -1889,10 +1889,7 @@ int main(void)
 	  send_uart("Result_File.txt created\n\r");
  8000bb6:	4825      	ldr	r0, [pc, #148]	; (8000c4c <main+0xe0>)
  8000bb8:	f7ff ffa6 	bl	8000b08 <send_uart>
-//  bufclear();
-//  free_space = (uint32_t)(fre_clust * pfs->csize*0.5);
-//  sprintf(bufferSD, "SD CARD Free Space: \t%lu\n", free_space);
-//  send_uart(bufferSD);
+  }
 
   f_open(&fil, "Result_File.txt", FA_OPEN_ALWAYS | FA_WRITE | FA_READ);
  8000bbc:	2213      	movs	r2, #19
@@ -1965,7 +1962,7 @@ int main(void)
   f_close(&fil);
  8000c22:	480c      	ldr	r0, [pc, #48]	; (8000c54 <main+0xe8>)
  8000c24:	f005 fc13 	bl	800644e <f_close>
-  send_uart("\n\r-----------------------------n\rClosing file......Done \n\r");
+  send_uart("\n\r-----------------------------\n\rClosing file......Done \n\r");
  8000c28:	480f      	ldr	r0, [pc, #60]	; (8000c68 <main+0xfc>)
  8000c2a:	f7ff ff6d 	bl	8000b08 <send_uart>
  8000c2e:	2300      	movs	r3, #0
